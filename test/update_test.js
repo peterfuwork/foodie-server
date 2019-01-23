@@ -3,7 +3,6 @@ const User = require('../schema/user');
 
 describe('Updating records', () => {
     let mike;
-    let melena;
 
     beforeEach((done) => {
         mike = new User(
@@ -20,21 +19,6 @@ describe('Updating records', () => {
             }
         );
         mike.save()
-            .then(() => {});
-        melena = new User(
-            {
-                first_name: 'Melena',
-                last_name: 'Elliott',
-                gender: 'female',
-                ethnicity: 'white',
-                birth_year: '1995',
-                birth_place: 'USA',
-                user_image: 'https://dl.dropboxusercontent.com/s/2ley3orxko9bugx/Lisa.png',
-                email: 'melenaE@email.com',
-                password: '1234'
-            }
-        );
-        melena.save()
             .then(() => done());
     });
 
@@ -42,7 +26,7 @@ describe('Updating records', () => {
         operation
             .then(() => User.find({}))
             .then((users) => {
-                assert(users.length === 2);
+                assert(users.length === 1);
                 assert(users[0].birth_year === 1995);
                 done();
             });

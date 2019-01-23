@@ -3,8 +3,6 @@ const User = require('../schema/user');
 
 describe('Deleting a user', () => {
     let mike;
-    let melena;
-
     beforeEach((done) => {
         mike = new User(
             {
@@ -20,21 +18,6 @@ describe('Deleting a user', () => {
             }
         );
         mike.save()
-            .then(() => {});
-        melena = new User(
-            {
-                first_name: 'Melena',
-                last_name: 'Elliott',
-                gender: 'female',
-                ethnicity: 'white',
-                birth_year: '1995',
-                birth_place: 'USA',
-                user_image: 'https://dl.dropboxusercontent.com/s/2ley3orxko9bugx/Lisa.png',
-                email: 'melenaE@email.com',
-                password: '1234'
-            }
-        );
-        melena.save()
             .then(() => done());
     });
 
